@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{46FF5F93-84E8-49F7-84B8-BE201C28CCC5}</ProjectGuid>
+    <ProjectGuid>{2C3E6AE5-5344-4D35-9ECD-5B1FFC5BAEE7}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Forex.Core</RootNamespace>
-    <AssemblyName>Forex.Core</AssemblyName>
+    <RootNamespace>Forex.Strategy</RootNamespace>
+    <AssemblyName>Forex.Strategy</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,14 +30,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="log4net, Version=2.0.7.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
-      <HintPath>..\packages\log4net.2.0.7\lib\net45-full\log4net.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.9.0.2-beta1\lib\net45\Newtonsoft.Json.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="nquotes, Version=1.14.0.0, Culture=neutral, PublicKeyToken=10a0b99e254e1a7d, processorArchitecture=MSIL">
       <HintPath>..\packages\nquotes.1.14.0\lib\net45\nquotes.dll</HintPath>
       <Private>True</Private>
@@ -52,9 +44,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entity\Account.cs" />
-    <Compile Include="Entity\Bar.cs" />
-    <Compile Include="Manager\Order\OrderManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

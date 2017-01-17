@@ -8,7 +8,7 @@ namespace Forex.Core.Manager.Order {
 
         public OrderManager(MqlApi api) {
             _api = api;
-            _symbol = _api.Symbol();
+            _symbol =_api.Symbol();
         }
 
         public int Buy(double volume, int slippage, double stopLoss,

@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Globalization;
+using System.Linq;
 using Forex.Core.Entity;
 using Forex.Core.Manager.Order;
+using Forex.Core.MathLib;
 using NQuotes;
 
 namespace Forex.Experts {
@@ -34,24 +37,32 @@ namespace Forex.Experts {
                     CurrentTime = currentBar.CurrentTime,
                     Price = currentBar.Close
                 });
-
-                AnalyzeTickData();
             }
 
 
             Trace.WriteLine(currentBar);
 
+            Analyze();
+
             return 0;
         }
 
-        private int AnalyzeTickData() {
-            // Todo: Linear regression must be implemented
-            throw new NotImplementedException();
+        private void Analyze() {
+            var regression = new LinearRegression(_tickDatas.Select((p, index) => (double) index).ToList(),
+                _tickDatas.Select(p => p.Price).ToList());
+
+            var nextIndex = (double) (_tickDatas.Count + 1);
+
+            var predictedValue =  regression.GetPredictedYValue(nextIndex);
+
+            Trace.WriteLine("PredictedValue:" + predictedValue.ToString(CultureInfo.InvariantCulture) + " Formula:" +
+                            regression.M + "x+" + regression.N);
         }
     }
 
     public class TickData {
         public DateTime CurrentTime { get; set; }
+        public double Time { get; set; }
         public double Price { get; set; }
     }
 }

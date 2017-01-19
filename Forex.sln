@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Forex.Experts", "Forex.Expe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Forex.Strategy", "Forex.Strategy\Forex.Strategy.csproj", "{2C3E6AE5-5344-4D35-9ECD-5B1FFC5BAEE7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Forex.TestWinForm", "Forex.TestWinForm\Forex.TestWinForm.csproj", "{7D3708E0-4418-4690-9EB2-5A709C79AADD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Forex.Mvc", "Forex.Mvc\Forex.Mvc.csproj", "{B532F000-43D6-41FE-B2DF-56B291BA21EF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{2C3E6AE5-5344-4D35-9ECD-5B1FFC5BAEE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2C3E6AE5-5344-4D35-9ECD-5B1FFC5BAEE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2C3E6AE5-5344-4D35-9ECD-5B1FFC5BAEE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D3708E0-4418-4690-9EB2-5A709C79AADD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D3708E0-4418-4690-9EB2-5A709C79AADD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D3708E0-4418-4690-9EB2-5A709C79AADD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D3708E0-4418-4690-9EB2-5A709C79AADD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B532F000-43D6-41FE-B2DF-56B291BA21EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B532F000-43D6-41FE-B2DF-56B291BA21EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B532F000-43D6-41FE-B2DF-56B291BA21EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B532F000-43D6-41FE-B2DF-56B291BA21EF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

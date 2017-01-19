@@ -9,7 +9,7 @@ using Forex.Mvc.Models;
 
 namespace Forex.Mvc.Controllers {
     public class HomeController : Controller {
-        private readonly int _pageSize = 100;
+        private readonly int _pageSize = 500;
         public ActionResult Index(int pageNumber = 0) {
             var tickData = GetTickData(pageNumber);
             var regData = GetRegressionData(tickData);
@@ -43,16 +43,16 @@ namespace Forex.Mvc.Controllers {
 
             var tickDatas = new List<TickData>();
 
-            var lines = System.IO.File.ReadAllLines(Server.MapPath("~/Data/DAT_ASCII_EURUSD_T_201701.csv"));
+            var lines = System.IO.File.ReadAllLines(Server.MapPath("~/Data/Crude.txt"));
             lines = lines.Skip(pageNumber*_pageSize).Take(_pageSize).ToArray();
 
             var lineNumber = 1;
             foreach (var line in lines) {
                 var lineData = line.Split(',');
                 double ask;
-                double bid;
+                //double bid;
                 double.TryParse(lineData[1], NumberStyles.Any, CultureInfo.InvariantCulture, out ask);
-                double.TryParse(lineData[2], NumberStyles.Any, CultureInfo.InvariantCulture, out bid);
+                //double.TryParse(lineData[2], NumberStyles.Any, CultureInfo.InvariantCulture, out bid);
 
                 var tickData = new TickData {
                     Time = lineNumber,

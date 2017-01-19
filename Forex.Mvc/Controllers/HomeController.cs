@@ -9,9 +9,9 @@ using Forex.Mvc.Models;
 
 namespace Forex.Mvc.Controllers {
     public class HomeController : Controller {
-        public ActionResult Index() {
-            const int limit = 100;
-            var tickData = GetTickData(limit);
+        private readonly int _pageSize = 100;
+        public ActionResult Index(int pageNumber = 0) {
+            var tickData = GetTickData(pageNumber);
             var regData = GetRegressionData(tickData);
 
             var chartViewModel = new ChartViewModel {
@@ -39,12 +39,14 @@ namespace Forex.Mvc.Controllers {
             return regData;
         }
 
-        private List<TickData> GetTickData(int limit) {
+        private List<TickData> GetTickData(int pageNumber) {
 
             var tickDatas = new List<TickData>();
 
             var lines = System.IO.File.ReadAllLines(Server.MapPath("~/Data/DAT_ASCII_EURUSD_T_201701.csv"));
-            int lineNumber = 1;
+            lines = lines.Skip(pageNumber*_pageSize).Take(_pageSize).ToArray();
+
+            var lineNumber = 1;
             foreach (var line in lines) {
                 var lineData = line.Split(',');
                 double ask;
@@ -61,7 +63,7 @@ namespace Forex.Mvc.Controllers {
                 lineNumber++;
             }
 
-            return tickDatas.Where(p => p.Time < limit).ToList();
+            return tickDatas;
         }
     }
 }

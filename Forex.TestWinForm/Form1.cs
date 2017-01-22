@@ -1,16 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
+using Forex.Core.Entity;
 using Forex.Core.MathLib;
-using Forex.Experts;
 
 namespace Forex.TestWinForm {
     public partial class Form1 : Form {
@@ -25,9 +21,9 @@ namespace Forex.TestWinForm {
         private void btnPredict_Click(object sender, EventArgs e) {
             var tickData = GetTickData();
             var numberOfPoints = Convert.ToInt32(txtNumberOfPoints.Text);
-            var regData = tickData.Where(p => p.Time < numberOfPoints).ToList();
+            var regData = tickData.Where(p => p.Index < numberOfPoints).ToList();
 
-            var regression = new LinearRegression(regData.Select(p => p.Time).ToList(),
+            var regression = new LinearRegression(regData.Select(p => p.Index).ToList(),
                 regData.Select(p => p.Price).ToList());
 
             // Clear chart
@@ -44,8 +40,8 @@ namespace Forex.TestWinForm {
             };
             chartPrices.Series.Add(tSeries);
 
-            foreach (var tData in tickData.Where(p => p.Time <= numberOfPoints)) {
-                tSeries.Points.AddXY(tData.Time, tData.Price);
+            foreach (var tData in tickData.Where(p => p.Index <= numberOfPoints)) {
+                tSeries.Points.AddXY(tData.Index, tData.Price);
             }
 
             // Regression data
@@ -59,7 +55,7 @@ namespace Forex.TestWinForm {
             chartPrices.Series.Add(rSeries);
 
             foreach (var rData in regData) {
-                rSeries.Points.AddXY(rData.Time, rData.Price);
+                rSeries.Points.AddXY(rData.Index, rData.Price);
             }
 
             // Add predicted point
@@ -81,7 +77,7 @@ namespace Forex.TestWinForm {
                 double.TryParse(lineData[2], NumberStyles.Any, CultureInfo.InvariantCulture, out bid);
 
                 var tickData = new TickData {
-                    Time = lineNumber,
+                    Index = lineNumber,
                     Price = ask
                 };
 

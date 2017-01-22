@@ -48,6 +48,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -58,6 +59,7 @@
   <ItemGroup>
     <Compile Include="Entity\Account.cs" />
     <Compile Include="Entity\Bar.cs" />
+    <Compile Include="Entity\TickData.cs" />
     <Compile Include="Manager\Order\OrderManager.cs" />
     <Compile Include="MathLib\LinearRegression.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
